@@ -10,7 +10,7 @@
 
 library(vegan) # for multivariate functions
 library(MASS) # just needed for simulating data
-library(tidyverse)
+library(tidyverse) # just for tidying simulated data
 
 
 
@@ -62,7 +62,7 @@ ordihull(ord, groups = d$trt, col=c('blue', 'red'),
 
 # Run the PERMANOVA ####
 
-out = adonis2(m ~ trt, data=d)
+out = adonis2(m ~ trt, data=d, method = 'bray')
 out
 
 
