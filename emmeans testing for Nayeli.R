@@ -25,6 +25,7 @@ data.plot = data.frame(x = c("0","1"),
                        means = c(1.55, 11.7),
                        lower = c(1.09, 10.29),
                        upper = c(2.2, 13.3))
+  # take values from emmeans output
 
 # Plot means and confidence intervals
 ggplot(data=data.plot, aes(x=x,y=means)) +
