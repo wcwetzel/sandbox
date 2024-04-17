@@ -33,12 +33,30 @@ prop.area = function(A, B, H) {
 }
 
 
-cut.proportion = seq(0,1, length=1000)
+cut.proportion = seq(0,1, length=10000)
 
 area.prop = prop.area(10, 1, cut.proportion*10)
 
 plot(cut.proportion ~ area.prop, type='l', col=2)
 abline(a=0,b=1)
 
-?uniroot
+#?uniroot
+
+# Find cut proportions for area treatment levels
+n = 4 # rounding
+cut.proportion[round(area.prop, n) == 0.05]
+cut.proportion[round(area.prop, n) == 0.1]
+cut.proportion[round(area.prop, n) == 0.2]
+cut.proportion[round(area.prop, n) == 0.3]
+cut.proportion[round(area.prop, n) == 0.4]
+cut.proportion[round(area.prop, 3) == 0.5] # has to be 0.5
+cut.proportion[round(area.prop, n) == 0.6]
+cut.proportion[round(area.prop, n) == 0.7]
+cut.proportion[round(area.prop, n) == 0.8]
+cut.proportion[round(area.prop, n) == 0.9]
+cut.proportion[round(area.prop, n) == 0.95]
+
+
+
+
 
