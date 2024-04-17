@@ -33,12 +33,12 @@ prop.area = function(A, B, H) {
 }
 
 
-cut.proportions = seq(0,1, length=1000)
+cut.proportion = seq(0,1, length=1000)
 
-prop.areas = prop.area(10, 1, cut.proportions*10)
+area.prop = prop.area(10, 1, cut.proportion*10)
 
-plot(cut.proportions ~ prop.areas, type='l', col=2)
+plot(cut.proportion ~ area.prop, type='l', col=2)
 abline(a=0,b=1)
 
-
+?uniroot
 
