@@ -1,5 +1,6 @@
 library(lme4)
 library(mgcv)
+library(brms)
 
 x = runif(100, 0, 1)
 ran = rep(letters[1:4], length=100)
@@ -18,3 +19,10 @@ m_gam = gam(y ~ s(x), family='poisson')
 summary(m_gam)
 
 plot(m_gam)
+
+m2 = brm(y ~ s(x), data=data.frame(y=y, x=x), family='poisson')
+plot(m2)
+conditional_effects(m2)
+
+m3 = brm(y ~ x, data=data.frame(y=y, x=x), family='poisson', iter=400)
+
