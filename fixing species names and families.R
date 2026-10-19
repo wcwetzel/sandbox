@@ -51,3 +51,4 @@ dat <- dat %>%
   ) %>%
   ungroup()
 
+write.csv(dat, 'taxa_clean.csv')
