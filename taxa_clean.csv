@@ -1,0 +1,68 @@
+"","family","genus","species","sp_code","accepted_name"
+"1","asteraceae","ageratina","altissima","agealt","Ageratina altissima"
+"2","Asteraceae","ageratina","altissima","agealt","Ageratina altissima"
+"3","amaranthaceae","amaranthus","sp","amasp",NA
+"4","Melanthiaceae","amianthium","muscaetoxicum","amimus",NA
+"5","asterales","arctium","minus","arcmin","Arctium minus"
+"6","asteraceae","arctium","minus","arcmin","Arctium minus"
+"7","aristolochiaceae","aristolochia","chilensis","arichi","Aristolochia chilensis"
+"8","elaeocarpaceae","aristotelia","chilensis","arichi","Aristotelia chilensis"
+"9","apocynaceae","asclepias","syriaca","ascsyr","Asclepias syriaca"
+"10","asclepiadaceae","asclepias","syriaca","ascsyr","Asclepias syriaca"
+"11","Betulaceae","carpinus","caroliniana","carcar","Carpinus caroliniana"
+"12","orobanchaceae","castilleja","sulphurea","cassul","Castilleja septentrionalis"
+"13","schrophulariaceae","castilleja","sulphurea","cassul","Castilleja septentrionalis"
+"14","Asteraceae","centaurea","stoebe","censto",NA
+"15","onagraceae","circaea","lutetiana","cirlut","Circaea lutetiana"
+"16","onagraceae","circaea","lutetiana-var-canadensis","cirlut",NA
+"17","montiaceae","cistanthe","sp","cissp",NA
+"18","fabaceae","desmodium","podocarpum-subsp-oxyphyllum","despod",NA
+"19","Brassicaceae","diplotaxis","erucoides","diperu","Diplotaxis erucoides"
+"20","Brassicaceae","draba","bowderswa","drabow",NA
+"21","Brassicaceae","draba","brushswa","drabru",NA
+"22","Brassicaceae","draba","centennialswa","dracen",NA
+"23","Brassicaceae","draba","ftmorgan","draftm",NA
+"24","Brassicaceae","draba","jacksonlake","drajac",NA
+"25","Brassicaceae","draba","jeanktooleswa","drajea",NA
+"26","Brassicaceae","draba","mitaniswa","dramit",NA
+"27","Brassicaceae","draba","websterswa","draweb",NA
+"28","Rutaceae","erythrochiton","brasiliensis","erybra","Erythrochiton brasiliensis"
+"29","Papaveraceae","eschscholzia","californica","esccal","Eschscholzia californica"
+"30","papaveraceae","eschscholzia","californica","esccal","Eschscholzia californica"
+"31","Fagaceae","fagus","sylvatica","fagsyl","Fagus sylvatica"
+"32","iridaceae","iris","atrofusca","iriatr","Iris atrofusca"
+"33","iridaceae","iris","atropurpurea","iriatr","Iris atropurpurea"
+"34","hamamelidaceae","liquidambar","styraciflua","liqsty","Liquidambar styraciflua"
+"35","altingiaceae","liquidambar","styraciflua","liqsty","Liquidambar styraciflua"
+"36","fabaceae","lupin","perennis","lupper",NA
+"37","fabaceae","lupinus","perennis","lupper","Lupinus perennis"
+"38","Malvaceae","melhania","ovata","melova","Melhania ovata"
+"39","solanaceae","nicotiana","attenuata","nicatt",NA
+"40","Solanaceae","nicotiana","attenuata","nicatt",NA
+"41",NA,"palicourea-spnov-nodate","datasheet","paldat",NA
+"42","xanthorrhoeaceae","pasithea","caerulea","pascae","Pasithea caerulea"
+"43","asphodelaceae ","pasithea","caerulea","pascae","Pasithea caerulea"
+"44","boraginaceae","phacelia","sericea","phaser","Phacelia sericea"
+"45","hydrophyllaceae","phacelia","sericea","phaser","Phacelia sericea"
+"46","Piperaceae","piper","tridentipilum","piptri","Piper tridentipilum"
+"47","plantaginaceae","plantago","lanceolata","plalan","Plantago lanceolata"
+"48","plantaginaeae","plantago","lanceolata","plalan","Plantago lanceolata"
+"49","plantanigacea","plantago","lanceolata","plalan","Plantago lanceolata"
+"50","Plantaginaceae","plantago","lanceolata","plalan","Plantago lanceolata"
+"51","plantaginaceae","plantego","major","plamaj",NA
+"52","plantaginaceae","plantago","major","plamaj","Plantago major"
+"53","Salicaceae","populus","tremuloides","poptre","Populus tremuloides"
+"54","Polygonaceae","rumex","japonicus","rumjap","Rumex japonicus"
+"55","asteraceae","solidago","canadensis","solcan","Solidago canadensis"
+"56","Asteraceae","solidago","canadensis","solcan","Solidago canadensis"
+"57","Solanaceae","solanum","incanum","solinc",NA
+"58","solanaceae","solanum","sp","solsp",NA
+"59","fabaceae","spatholobus","unknown","spaunk",NA
+"60","Caprifoliaceae","symphoricarpos","albus","symalb","Symphoricarpos albus"
+"61","asteraceae","symphyotrichum","novae-angliae","symnov","Symphyotrichum novae-angliae"
+"62","asteraceae","symphyotrichum","novi-belgii","symnov","Symphyotrichum novi-belgii"
+"63","asteraceae","taraxacum","officinale","taroff","Taraxacum sect. Taraxacum"
+"64","asteraceae","taraxacum","officinalis","taroff",NA
+"65","asteracea","taraxacum","officinale","taroff","Taraxacum sect. Taraxacum"
+"66","asteraceae","urtica","dioica","urtdio",NA
+"67","urticaceae","urtica","dioica","urtdio",NA
