@@ -1,11 +1,12 @@
 library(sf)
 library(terra)
 library(elevatr)
-library(tigris)
+#library(tigris)
 library(hydrogeofetch)
 library(ggplot2)
 library(ggnewscale)
 library(patchwork)
+library(cowplot)
 
 options(tigris_use_cache = TRUE)
 
@@ -13,10 +14,10 @@ options(tigris_use_cache = TRUE)
 # Study area
 # =====================================================
 
-xmin <- -111.354679
-xmax <- -110.920550
-ymin <- 45.268677
-ymax <- 45.530943
+xmin <- -111.300000
+xmax <- -110.930000
+ymin <- 45.300000
+ymax <- 45.500000
 
 bbox <- st_as_sf(
   st_as_sfc(
@@ -38,7 +39,7 @@ bbox <- st_as_sf(
 
 dem <- get_elev_raster(
   locations = bbox,
-  z = 11,
+  z = 12,
   clip = "locations"
 )
 
@@ -102,12 +103,11 @@ p1 <- ggplot() +
   ) +
   geom_sf(
     data = bbox,
-    fill = NA,
-    color = "red",
-    linewidth = 1.2
+    fill = 'black',
+    color = "black"#,
+    #linewidth = 0.8
   ) +
-  theme_void() +
-  labs(title = "Study area in Montana")
+  theme_void()
 
 # =====================================================
 # Gallatin River
@@ -115,10 +115,14 @@ p1 <- ggplot() +
 
 rivers <- get_nhdplus(AOI = bbox)
 
-gallatin <- subset(
-  rivers,
-  gnis_name == "Gallatin River"
-)
+major_rivers <- subset(rivers, streamorde >= 5)
+# >= 5 captures just the Gallatin River
+# Lower that number if I want to capture smaller rivers
+
+# gallatin <- subset(
+#   rivers,
+#   gnis_name == "Gallatin River"
+# )
 
 # =====================================================
 # Elevation panel
@@ -146,21 +150,24 @@ p2 <- ggplot() +
   ) +
 
   scale_fill_gradientn(
-    colours = c(
+    colours = rev(c(
       "#f7f4f9",
       "#dfc27d",
       "#a6d96a",
       "#1a9850"
-    ),
+    )),
     name = "Elevation (m)"
   ) +
 
   geom_sf(
-    data = gallatin,
+    data = major_rivers,
     inherit.aes = FALSE,
-    color = "#2171b5",
-    linewidth = 0.8
+    color = "#4a90e2",
+    linewidth = 0.5,
+    alpha=0.7,
+    show.legend=FALSE
   ) +
+  scale_linewidth(range=c(1, 2)) +
 
   coord_sf(
     xlim = c(xmin, xmax),
@@ -174,18 +181,22 @@ p2 <- ggplot() +
     panel.grid = element_blank(),
     axis.title = element_blank(),
     plot.title = element_text(face = "bold")
-  ) +
-
-  labs(
-    title = "Southwest Montana study area"
   )
 
 # =====================================================
 # Combine
 # =====================================================
 
-fig <- p1 + p2 +
-  plot_layout(widths = c(1, 2.2))
+fig <- p2 +
+  inset_element(
+    p1,
+    left = 0.85,
+    bottom = 0.65,
+    right = 1.24,
+    top = 1.05
+  )
+
+fig
 
 ggsave(
   "study_area_map.png",
@@ -195,5 +206,3 @@ ggsave(
   dpi = 600,
   bg = "white"
 )
-
-fig
