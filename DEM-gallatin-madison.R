@@ -2,7 +2,9 @@ library(sf)
 library(terra)
 library(elevatr)
 library(tigris)
+library(hydrogeofetch)
 library(ggplot2)
+library(ggnewscale)
 library(patchwork)
 
 options(tigris_use_cache = TRUE)
@@ -42,7 +44,6 @@ dem <- get_elev_raster(
 
 dem <- rast(dem)
 
-# force exact crop
 dem <- crop(
   dem,
   ext(xmin, xmax, ymin, ymax)
@@ -91,7 +92,6 @@ names(dem_df)[3] <- "elevation"
 # =====================================================
 
 mt <- states(cb = TRUE)
-
 mt <- mt[mt$STUSPS == "MT", ]
 
 p1 <- ggplot() +
@@ -108,6 +108,17 @@ p1 <- ggplot() +
   ) +
   theme_void() +
   labs(title = "Study area in Montana")
+
+# =====================================================
+# Gallatin River
+# =====================================================
+
+rivers <- get_nhdplus(AOI = bbox)
+
+gallatin <- subset(
+  rivers,
+  gnis_name == "Gallatin River"
+)
 
 # =====================================================
 # Elevation panel
@@ -144,7 +155,18 @@ p2 <- ggplot() +
     name = "Elevation (m)"
   ) +
 
-  coord_equal() +
+  geom_sf(
+    data = gallatin,
+    inherit.aes = FALSE,
+    color = "#2171b5",
+    linewidth = 0.8
+  ) +
+
+  coord_sf(
+    xlim = c(xmin, xmax),
+    ylim = c(ymin, ymax),
+    expand = FALSE
+  ) +
 
   theme_minimal(base_size = 12) +
 
@@ -154,7 +176,9 @@ p2 <- ggplot() +
     plot.title = element_text(face = "bold")
   ) +
 
-  labs(title = "Southwest Montana study area")
+  labs(
+    title = "Southwest Montana study area"
+  )
 
 # =====================================================
 # Combine
