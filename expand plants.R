@@ -19,9 +19,6 @@ d = data.frame(
   time = rep(rep(1:ntime, each=nplant), times = nquad)
 )
 
-# Add a height col, which will be NA for missing plants
-d$height = runif(nrow(d), 0, 1)
-
 
 # Remove some rows, simulating dead or missing plants ####
 dmissing = d |>
@@ -29,6 +26,10 @@ dmissing = d |>
   filter(!(quadID == 1 & plantID == 1 & time == 3)) |>
   # Drop plant 5 in quad 13 at times 2 and 3
   filter(!(quadID == 2 & plantID == 5 & time >1))
+
+
+# Add a height col, which will be NA for missing plants ####
+dmissing$height = runif(nrow(dmissing), 0, 1)
 
 
 # Do the expansion ####
