@@ -34,7 +34,7 @@ dmissing = d |>
 # but it would also work with group_by(quadID)
 dfull = dmissing |>
   expand(nesting(quadID, plantID), time) |>
-  left_join(dmissing)
+  left_join(dmissing, by = c('quadID', 'plantID', 'time'))
 
 # Can use complete if you don't want to join manually after
 dfull2 = dmissing |>
