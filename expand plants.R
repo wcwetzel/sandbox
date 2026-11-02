@@ -25,7 +25,9 @@ d$height = runif(nrow(d), 0, 1)
 
 # Remove some rows, simulating dead or missing plants ####
 dmissing = d |>
+  # Drop plant 1 in quad 1 at time 3
   filter(!(quadID == 1 & plantID == 1 & time == 3)) |>
+  # Drop plant 5 in quad 13 at times 2 and 3
   filter(!(quadID == 2 & plantID == 5 & time >1))
 
 
