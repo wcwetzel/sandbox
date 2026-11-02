@@ -14,10 +14,10 @@ options(tigris_use_cache = TRUE)
 # Study area
 # =====================================================
 
-xmin <- -111.300000
-xmax <- -110.930000
-ymin <- 45.300000
-ymax <- 45.500000
+xmin <- -111.350000
+xmax <- -111.050000
+ymin <- 45.400000
+ymax <- 45.4750000
 
 bbox <- st_as_sf(
   st_as_sfc(
@@ -32,6 +32,8 @@ bbox <- st_as_sf(
     )
   )
 )
+
+d = read.csv('2026-FieldSite_LatLon.csv')
 
 # =====================================================
 # Download DEM
@@ -110,19 +112,19 @@ p1 <- ggplot() +
   theme_void()
 
 # =====================================================
-# Gallatin River
+# Rivers and lakes
 # =====================================================
 
 rivers <- get_nhdplus(AOI = bbox)
+rivers <- st_intersection(rivers, bbox)
 
-major_rivers <- subset(rivers, streamorde >= 5)
+major_rivers <- subset(rivers, streamorde >= 3)
 # >= 5 captures just the Gallatin River
 # Lower that number if I want to capture smaller rivers
 
-# gallatin <- subset(
-#   rivers,
-#   gnis_name == "Gallatin River"
-# )
+lakes <- get_waterbodies(AOI = bbox)
+lakes <- st_intersection(lakes, bbox)
+
 
 # =====================================================
 # Elevation panel
@@ -181,7 +183,18 @@ p2 <- ggplot() +
     panel.grid = element_blank(),
     axis.title = element_blank(),
     plot.title = element_text(face = "bold")
-  )
+  ) +
+
+  geom_sf(
+    data = lakes,
+    inherit.aes = FALSE,
+    fill = "#6baed6",
+    color = "#2171b5",
+    linewidth = 0.2,
+    show.legend = FALSE
+  ) +
+
+  geom_point(data=d, aes(x=lon, y=lat))
 
 # =====================================================
 # Combine
@@ -190,10 +203,10 @@ p2 <- ggplot() +
 fig <- p2 +
   inset_element(
     p1,
-    left = 0.85,
-    bottom = 0.65,
-    right = 1.24,
-    top = 1.05
+    left = 0.7,
+    bottom = 0.0,
+    right = 1.0,
+    top = 0.4
   )
 
 fig
