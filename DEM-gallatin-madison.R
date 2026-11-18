@@ -1,7 +1,7 @@
 library(sf)
 library(terra)
 library(elevatr)
-#library(tigris)
+library(tigris)
 library(hydrogeofetch)
 library(ggplot2)
 library(ggnewscale)
