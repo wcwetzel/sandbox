@@ -199,8 +199,8 @@ p2 <- ggplot() +
     show.legend = FALSE
   ) +
 
-  scale_x_continuous(n.breaks=3) +
-  scale_y_continuous(n.breaks=3) +
+  scale_x_continuous(n.breaks=4) +
+  scale_y_continuous(n.breaks=4) +
 
   geom_point(data=d, aes(x=lon, y=lat))
 
