@@ -162,7 +162,8 @@ p2 <- ggplot() +
       "#a6d96a",
       "#1a9850"
     )),
-    name = "Elevation (m)"
+    name = "Elevation (m)",
+    breaks=c(1600, 2250, 2900)
   ) +
 
   geom_sf(
@@ -197,6 +198,9 @@ p2 <- ggplot() +
     linewidth = 0.2,
     show.legend = FALSE
   ) +
+
+  scale_x_continuous(n.breaks=3) +
+  scale_y_continuous(n.breaks=3) +
 
   geom_point(data=d, aes(x=lon, y=lat))
 
